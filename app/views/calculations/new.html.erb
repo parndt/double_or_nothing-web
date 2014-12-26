@@ -1,12 +1,16 @@
 <%= form_for @calculation do |f| %>
 
   <p>
-    <%= f.label :birthday_one, "First Birthday (YYYY-MM-DD only):" %>
+    Use valid date formats, please! For example: YYYY-MM-DD
+  </p>
+
+  <p>
+    <%= f.label :birthday_one, "First Birthday:" %>
     <%= f.date_field :birthday_one %>
   </p>
 
   <p>
-    <%= f.label :birthday_two, "Second Birthday (YYYY-MM-DD only):" %>
+    <%= f.label :birthday_two, "Second Birthday:" %>
     <%= f.date_field :birthday_two %>
   </p>
 

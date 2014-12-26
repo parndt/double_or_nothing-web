@@ -28,11 +28,17 @@ class CalculationsController < ApplicationController
   end
 
   def eldest
-    calculation_params.slice(:birthday_one, :birthday_two).values.sort.last
+    birthdays.sort.first
   end
 
   def youngest
-    calculation_params.slice(:birthday_one, :birthday_two).values.sort.first
+    birthdays.sort.last
+  end
+
+  def birthdays
+    calculation_params.slice(:birthday_one, :birthday_two).values.map {|b|
+      Date.parse(b)
+    }
   end
 
 end
