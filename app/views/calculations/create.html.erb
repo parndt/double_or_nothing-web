@@ -1,0 +1,17 @@
+<p>
+  The eldest person has the birthday: <br/>
+  <%= @eldest_birthday.strftime("%A, %b %d, %Y") %>
+</p>
+<p>
+  The youngest person has the birthday: <br/>
+  <%= @youngest_birthday.strftime("%A, %b %d, %Y") %>
+</p>
+
+<p>
+ The eldest person will be / was twice the age of the youngest person at:
+</p>
+<p>
+  <strong>
+    <%= @calculated_date.strftime("%A, %b %d, %Y") %>
+  </strong>
+</p>

@@ -9,9 +9,9 @@ class CalculationsController < ApplicationController
   def create
     calculator = DoubleOrNothing::Calculator.new(person_one, person_two)
 
-    render :text => "The person with the birthday '#{eldest}'
-      will be twice the age of the person with birthday '#{youngest}'
-      at '#{calculator.call}'."
+    @eldest_birthday = eldest
+    @youngest_birthday = youngest
+    @calculated_date = calculator.call
   end
 
   private
