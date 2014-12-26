@@ -1,0 +1,17 @@
+<%= form_for @calculation do |f| %>
+
+  <p>
+    <%= f.label :birthday_one, "First Birthday (YYYY-MM-DD only):" %>
+    <%= f.date_field :birthday_one %>
+  </p>
+
+  <p>
+    <%= f.label :birthday_two, "Second Birthday (YYYY-MM-DD only):" %>
+    <%= f.date_field :birthday_two %>
+  </p>
+
+  <p>
+    <%= f.submit "Calculate!" %>
+  </p>
+
+<% end %>
