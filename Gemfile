@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.0'
+ruby '2.5.1'
 
 gem "double_or_nothing", "~> 1.0"
 
