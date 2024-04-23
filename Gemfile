@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
 
-ruby File.read('.ruby-version').strip
+ruby file: ".ruby-version"
 
 gem "double_or_nothing", "~> 1.0"
+
+gem "falcon"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "railties", "~> 6.0.3"
