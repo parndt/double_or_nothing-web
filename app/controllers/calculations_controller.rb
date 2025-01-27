@@ -1,44 +1,28 @@
 require "double_or_nothing"
 
 class CalculationsController < ApplicationController
-
   def new
     @calculation = Calculation.new
   end
 
   def create
-    calculator = DoubleOrNothing::Calculator.new(person_one, person_two)
-
-    @eldest_birthday = eldest
-    @youngest_birthday = youngest
+    @eldest_birthday = birthdays.min
+    @youngest_birthday = birthdays.max
     @calculated_date = calculator.call
   end
 
-  private
-  def calculation_params
-    params.require(:calculation).permit(:birthday_one, :birthday_two)
-  end
+  private def calculator = DoubleOrNothing::Calculator.new(person_one, person_two)
 
-  def person_one
-    DoubleOrNothing::Person.new(calculation_params[:birthday_one])
-  end
+  private def calculation_params = params.require(:calculation).permit(:birthday_one, :birthday_two)
 
-  def person_two
-    DoubleOrNothing::Person.new(calculation_params[:birthday_two])
-  end
+  private def person_one = DoubleOrNothing::Person.new(calculation_params[:birthday_one])
 
-  def eldest
-    birthdays.sort.first
-  end
+  private def person_two = DoubleOrNothing::Person.new(calculation_params[:birthday_two])
 
-  def youngest
-    birthdays.sort.last
+  private def birthdays
+    calculation_params
+      .slice(:birthday_one, :birthday_two)
+      .values
+      .map(&Date.method(:parse))
   end
-
-  def birthdays
-    calculation_params.slice(:birthday_one, :birthday_two).values.map {|b|
-      Date.parse(b)
-    }
-  end
-
 end

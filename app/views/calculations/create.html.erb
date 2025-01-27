@@ -8,7 +8,7 @@
 </p>
 
 <p>
- The eldest person will be / was twice the age of the youngest person at:
+  The eldest person <%= @calculated_date > Time.zone.now ? "will be" : "was" %> twice the age of the youngest person at:
 </p>
 <p>
   <strong>

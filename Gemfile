@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
 ruby file: ".ruby-version"
 
@@ -7,11 +7,14 @@ gem "double_or_nothing", "~> 1.0"
 gem "falcon"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem "railties", "~> 6.0.3"
-gem "actionpack", "~> 6.0.3"
-gem "activemodel", "~> 6.0.3"
+gem "railties", "~> 8.0.0"
+gem "actionpack", "~> 8.0.0"
+gem "activemodel", "~> 8.0.0"
 
-group :production do
-  gem 'rails_12factor'
+group :development do
+  gem "standard"
 end
 
+group :production do
+  gem "rails_12factor"
+end

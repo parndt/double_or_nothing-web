@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: redirect('calculations/new')
+  root to: redirect("calculations/new")
 
   resources :calculations, only: [:new, :create]
 
